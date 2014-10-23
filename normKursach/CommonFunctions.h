@@ -25,7 +25,7 @@ string* readTo(string s, char c, int& pos){
 void PrintError(string s){
 	System::ConsoleColor buffer = System::Console::ForegroundColor;
 	System::Console::ForegroundColor = System::ConsoleColor::Red;
-	cout << s;
+	cout << s << "\r\n";
 	System::Console::ForegroundColor = buffer;
 }
 

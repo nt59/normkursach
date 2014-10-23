@@ -39,6 +39,7 @@ private:
 		do{
 			flag = false;
 			getline(cin, *buf);
+			tempInfo->Audio_Video = new string;
 			switch (atoi(buf->c_str())){
 			case 1:
 				*tempInfo->Audio_Video = "Audio";
@@ -47,6 +48,8 @@ private:
 				*tempInfo->Audio_Video = "Video";
 				break;
 			default:
+				if(tempInfo->Audio_Video->compare("") != 0)
+					PrintError("Введены некорректные данные!");
 				return tempInfo;
 			}
 		} while (flag);
@@ -70,6 +73,7 @@ private:
 		do{
 			flag = false;
 			getline(cin, *buf);
+			tempInfo->Cd_Dvd = new string;
 			switch (atoi(buf->c_str())){
 			case 1:
 				*tempInfo->Cd_Dvd = "CD";
@@ -78,14 +82,15 @@ private:
 				*tempInfo->Cd_Dvd = "DvD";
 				break;
 			default:
-				return NULL;
+				PrintError("Введены некорректные данные!");
+				return tempInfo;
 			}
 		} while (flag);
 
+		tempInfo->Genre = new string;
 		if (tempInfo->Audio_Video->compare("Audio") == 0){
 			cout << "\n(1 - классика, 2 - рок, 3 - альтернатива, 4 - джаз, 5 - поп)";
 			cout << "\nВведите жанр музыки: ";
-//			bool flag;
 			do{
 				flag = false;
 				getline(cin, *buf);
@@ -98,12 +103,16 @@ private:
 					break;
 				case 3:
 					*tempInfo->Genre = "альтернатива";
+					break;
 				case 4:
 					*tempInfo->Genre = "джаз";
+					break;
 				case 5:
 					*tempInfo->Genre = "поп";
+					break;
 				default:
-					return NULL;
+					PrintError("Введены некорректные данные!");
+					return tempInfo;
 				}
 			} while (flag);
 		}
@@ -123,12 +132,16 @@ private:
 					break;
 				case 3:
 					*tempInfo->Genre = "приключения";
+					break;
 				case 4:
 					*tempInfo->Genre = "семейный";
+					break;
 				case 5:
 					*tempInfo->Genre = "драма";
+					break;
 				default:
-					return NULL;
+					PrintError("Введены некорректные данные!");
+					return tempInfo;
 				}
 			} while (flag);
 		}
@@ -298,12 +311,14 @@ public:
 					case 2:
 						*selectedInfo->Audio_Video = "Video";
 						break;
+					default:
+						PrintError("Введены некорректные данные!");
+						break;
 					}
 				} while (flag);
 				break;
 			case 2:
 				cout << "\n(1 - CD, 2 - DVD)";
-//				bool flag;
 				do{
 					cout << "\nВведите CD или DvD: ";
 					flag = false;
@@ -314,6 +329,9 @@ public:
 						break;
 					case 2:
 						*selectedInfo->Cd_Dvd = "DvD";
+						break;
+					default:
+						PrintError("Введены некорректные данные!");
 						break;
 					}
 				} while (flag);
@@ -335,10 +353,16 @@ public:
 							break;
 						case 3:
 							*selectedInfo->Genre = "альтернатива";
+							break;
 						case 4:
 							*selectedInfo->Genre = "джаз";
+							break;
 						case 5:
 							*selectedInfo->Genre = "поп";
+							break;
+						default:
+							PrintError("Введены некорректные данные!");
+							break;
 						}
 					} while (flag);
 				}
@@ -358,10 +382,16 @@ public:
 							break;
 						case 3:
 							*selectedInfo->Genre = "приключения";
+							break;
 						case 4:
 							*selectedInfo->Genre = "семейный";
+							break;
 						case 5:
 							*selectedInfo->Genre = "драма";
+							break;
+						default:
+							PrintError("Введены некорректные данные!");
+							break;
 						}
 					} while (flag);
 				}
@@ -371,7 +401,7 @@ public:
 				}
 				cout << "\r\nПродолжить редактирование информации о данном клиенте? (1 - да, 2 - нет) : ";
 				while (true){
-					cout << "Выбрать пункт: ";
+					cout << "\r\nВыбрать пункт: ";
 					getline(cin, *buf);
 					if (isNumber(*buf)){
 						j = atoi(buf->c_str());
@@ -394,14 +424,14 @@ public:
 
 	void WriteData(){
 		printf("________________________________________________________________________________\r\n");
-		printf("%4s |  %10s | %12s | %19s      | %s", "ID", "Audio или Video", "CD или DVD" ," Жанр |");
+		printf("%4s |  %10s | %12s | %15s |\r\n", "ID", "Audio или Video", "CD или DVD" ," Жанр");
 		printf("________________________________________________________________________________\r\n");
 		InfoList* temp = First;
 		while (temp != NULL){
 			cout << setw(4) << temp->info->id << " |"
-				<< setw(18) << temp->info->Audio_Video->c_str() << " |"
-				<< setw(18) << temp->info->Cd_Dvd->c_str() << " |"
-				<< setw(13) << temp->info->Genre->c_str() << " |";
+				<< setw(17) << temp->info->Audio_Video->c_str() << " |"
+				<< setw(13) << temp->info->Cd_Dvd->c_str() << " |"
+				<< setw(16) << temp->info->Genre->c_str() << " |\r\n";
 			temp = temp->next;
 		}
 		delete temp;

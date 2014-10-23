@@ -1,4 +1,4 @@
-﻿Build started 10/23/2014 2:56:33 PM.
+﻿Build started 10/23/2014 3:40:18 PM.
      1>Project "C:\Users\ito1\documents\visual studio 2013\Projects\normKursach\normKursach\normKursach.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\normKursach.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib normKursach.cpp
@@ -6,9 +6,9 @@
      1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\CommonFunctions.h(7): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Client.h(103): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
-     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Information.h(165): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Information.h(178): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
-     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Information.h(238): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Information.h(251): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
      1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Check.h(98): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
@@ -46,4 +46,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.52
+Time Elapsed 00:00:05.86
