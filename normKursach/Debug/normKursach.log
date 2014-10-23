@@ -1,0 +1,27 @@
+﻿Build started 10/18/2014 9:08:30 PM.
+     1>Project "C:\Users\ito1\documents\visual studio 2013\Projects\normKursach\normKursach\normKursach.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\normKursach.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib normKursach.cpp
+         normKursach.cpp
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\CommonFunctions.h(7): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Client.h(103): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Information.h(165): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Information.h(238): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Check.h(97): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Check.h(112): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Check.h(127): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\Check.h(142): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h(937) : see declaration of 'itoa'
+     1>c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\CaI.h(173): error C2535: 'CaI *CaIs::EnterNewCaI(void)' : member function already defined or declared
+                 c:\users\ito1\documents\visual studio 2013\projects\normkursach\normkursach\CaI.h(31) : see declaration of 'CaIs::EnterNewCaI'
+     1>Done Building Project "C:\Users\ito1\documents\visual studio 2013\Projects\normKursach\normKursach\normKursach.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.69
