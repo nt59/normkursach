@@ -121,11 +121,11 @@ public:
 
 	void WriteData(){
 		printf("\n________________________________________________________________________________\r\n");
-		printf("%19s |  %28s", "Имя клиента (Id)", "Время аренды (Id учета) |\r\n");
+		printf("%24s |  %28s", "Имя клиента (Id)", "Время аренды (Id учета) |\r\n");
 		printf("________________________________________________________________________________\r\n");
 		CaCList* temp = First;
 		while (temp != NULL){
-			cout << setw(15) << *_clients->FindById(temp->cac->clientID)->Name << " (" << temp->cac->clientID<< ") |"
+			cout << setw(20) << *_clients->FindById(temp->cac->clientID)->Name << " (" << temp->cac->clientID<< ") |"
 				<< setw(22) << _checks->FindById(temp->cac->clientID)->RentTime << " (" << temp->cac->checkID << ") |\r\n";
 			temp = temp->next;
 		}
@@ -136,9 +136,9 @@ public:
 	void ReadData(){
 		CaC* temp;
 		do{
-			cout << "_______________________________________________________________________________\n";
+			cout << "_______________________________________________________________________________\r\n";
 			temp = EnterNewCaC();
-			cout << "_______________________________________________________________________________";
+			cout << "_______________________________________________________________________________\r\n";
 		} while (temp->clientID != 0);
 		if (temp != NULL) delete temp;
 	}
@@ -158,9 +158,13 @@ public:
 				if (_clients->FindById(atoi(buf->c_str())) != NULL)
 					tempCaC->clientID = atoi(buf->c_str());
 				else{
-					PrintError("Ошибка! Клиента с таким индентификатором не существует!\r\n");
+					PrintError("Ошибка! Клиента с таким индентификатором не существует!");
 					flag = true;
 				}
+			}
+			else{
+				flag = true;
+				PrintError("Введите число!");
 			}
 		} while (flag);
 
@@ -172,12 +176,12 @@ public:
 				if (_checks->FindById(atoi(buf->c_str())) != NULL)
 					tempCaC->checkID = atoi(buf->c_str());
 				else{
-					PrintError("Ошибка! Учета с таким индентификатором не существует!\r\n");
+					PrintError("Ошибка! Учета с таким индентификатором не существует!");
 					flag = true;
 				}
 			}
 			else {
-				PrintError("Ошибка! Введите число!\r\n");
+				PrintError("Ошибка! Введите число!");
 				flag = true;
 			}
 		} while (flag);
@@ -189,7 +193,7 @@ public:
 			return NULL;
 		}
 		AddCaCToList(tempCaC);
-		cout << "Запись успешно добавлена!";
+		cout << "Запись успешно добавлена!\r\n";
 		return tempCaC;
 	}
 

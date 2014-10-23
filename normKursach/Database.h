@@ -46,6 +46,7 @@ public:
 			PrintError("\nФайл \"Связь клиента и учета\"\n" + cacs->ErrorMessage);
 	}
 
+	// report
 	/*void GetReportOfDebt(){
 		cout << "Введите Id клиента ";
 		string t;
@@ -90,5 +91,18 @@ public:
 			node = node->next;
 		}
 		cout << "\n----------------------------------------------------------------------------\n";
-	}*/
+	}*/ 
+
+	void SaveChanges(){
+		cout << "Введите папку для сохраниния файлов: ";
+		string buf;
+		getline(cin, buf);
+		this->clients->SaveChanges(buf);
+		this->infoes->SaveChanges(buf);
+		this->checks->SaveChanges(buf);
+		this->cais->SaveChanges(buf);
+		this->cacs->SaveChanges(buf);
+		cout << "Изменения успешно сохранены!\r\n";
+	}
+
 };
