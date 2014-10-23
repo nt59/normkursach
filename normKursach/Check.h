@@ -1,9 +1,9 @@
 struct Check
 {
 	int id = 0;
-	int Revenue;
-	int RentTime;
-	int Data;
+	int Revenue = 0;
+	int RentTime = 0;
+	int Data = 0;
 };
 
 struct CheckList{
@@ -41,8 +41,23 @@ private:
 				buf = new string;
 				break;
 			}
-			else
-				PrintError("Ошибка! Введите число! ");
+			else{
+				if (buf->compare("") != 0)
+					PrintError("Ошибка! Введите число! ");
+				else
+					return ch;
+			}
+		}
+
+		if (First != NULL){
+			CheckList* sl = First;
+			while (sl->next != NULL){
+				sl = sl->next;
+			}
+			ch->id = sl->сheck->id + 1;
+		}
+		else{
+			ch->id = 1;
 		}
 
 		while (true){
@@ -57,17 +72,10 @@ private:
 				PrintError("Ошибка! Введите число! ");
 		}
 
-		while (true){
-			cout << "\nВведите какого числа был выдан товар: ";
-			getline(cin, *buf);
-			if (isNumber(*buf)){
-				ch->Data = atoi(buf->c_str());
-				buf = new string;
-				break;
-			}
-			else
-				PrintError("Ошибка! Ввeдите число! ");
-		}
+		cout << "\nВведите дату выдачи товара:\r\n";
+		ch->Data = getData();
+		delete buf;
+		AddCheckToList(ch);
 		return ch;
  	}
 
@@ -216,24 +224,15 @@ public:
 				}
 				break;
 			case 3:
-				while (true){
-					cout << "\nВведите какого числа был выдан товар: ";
-					getline(cin, *buf);
-					if (isNumber(*buf)){
-						selectedCheck->Data = atoi(buf->c_str());
-						buf = new string;
-						break;
-					}
-					else
-						PrintError("Ошибка! Ввeдите число! ");
-				}
+				cout << "\nВведите дату выдачи товара:\r\n";
+				selectedCheck->Data = getData();
 				break;
 			default:
 				PrintError("Введен некорректный номер пункта меню!\r\n");
 			}
 			cout << "\r\nПродолжить редактирование информации о данном учете? (1 - да, 2 - нет) : ";
 			while (true){
-				cout << "Выбрать пункт: ";
+				cout << "\r\nВыбрать пункт: ";
 				getline(cin, *buf);
 				if (isNumber(*buf)){
 					j = atoi(buf->c_str());
@@ -256,14 +255,14 @@ public:
 
 	void WriteData(){
 		printf("________________________________________________________________________________\r\n");
-		printf("%4s |  %9s | %17s | %10s           | %s", "ID", "Выручка", "Время аренды(дни)", " Дата |\r");
+		printf("%4s |  %9s | %19s | %4s |\r\n", "ID", "Выручка", "Время аренды(дни)", "Дата");
 		printf("________________________________________________________________________________\r\n");
 		CheckList* temp = First;
 		while (temp != NULL){
 			cout << setw(4) << temp->сheck->id << " |"
-				<< setw(9) << temp->сheck->Revenue << " |"
-				<< setw(17) << temp->сheck->RentTime << " |"
-				<< setw(10) << temp->сheck->Data << " |";
+				<< setw(11) << temp->сheck->Revenue << " |"
+				<< setw(20) << temp->сheck->RentTime << " |"
+				<< setw(5) << temp->сheck->Data << " |\r\n";
 			temp = temp->next;
 		}
 		delete temp;
