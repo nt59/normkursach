@@ -6,8 +6,8 @@ struct CaI   //связь информации и клиента
 
 struct CaIList
 {
-	CaI* cai;
-	CaIList *next;
+	CaI* cai = NULL;
+	CaIList *next = NULL;
 };
 
 class CaIs{
@@ -26,35 +26,6 @@ private:
 			temp->next = new CaIList;
 			temp->next->cai = cai;
 		}
-	}
-
-	CaI* EnterNewCaI(){
-		string* buf = new string;
-		CaI* tempCaI = new CaI;
-
-		cout << "\nВведите ID клиента: ";
-		getline(cin, *buf);
-		if (buf->compare("") == 0)
-			return tempCaI;
-		tempCaI->clientID = atoi(buf->c_str());
-
-		buf = new string;
-
-		while (true){
-			cout << "\nВведите ID информации: ";
-			getline(cin, *buf);
-			if (isNumber(*buf)){
-				tempCaI->informationID = atoi(buf->c_str());
-				buf = new string;
-				break;
-			}
-			else
-				PrintError("Ошибка! Введите число! ");
-		}
-
-		delete buf;
-		AddCaIToList(tempCaI);
-		return tempCaI;
 	}
 
 public:
@@ -167,14 +138,14 @@ public:
 	void ReadData(){
 		CaI* temp;
 		do{
-			cout << "_______________________________________________________________________________\n";
+			cout << "_______________________________________________________________________________\r\n";
 			temp = EnterNewCaI();
-			cout << "_______________________________________________________________________________";
+			cout << "_______________________________________________________________________________\r\n";
 		} while (temp->clientID != 0);
 		if (temp != NULL) delete temp;
 	}
 
-	/*CaI* EnterNewCaI(){
+	CaI* EnterNewCaI(){
 		string* buf = new string;
 		CaI* tempCaI = new CaI;
 		bool flag;
@@ -192,6 +163,10 @@ public:
 					PrintError("Ошибка! Клиента с таким индентификатором не существует!\r\n");
 					flag = true;
 				}
+			}
+			else {
+				PrintError("Ошибка! Введите число!\r\n");
+				flag = true;
 			}
 		} while (flag);
 
@@ -220,9 +195,9 @@ public:
 			return NULL;
 		}
 		AddCaIToList(tempCaI);
-		cout << "Запись успешно добавлена!";
+		cout << "Запись успешно добавлена!\r\n";
 		return tempCaI;
-	}*/
+	}
 
 	void SaveChanges(string address){
 		ofstream data;
@@ -237,6 +212,4 @@ public:
 		delete temp;
 		data.close();
 	}
-
-	
 };

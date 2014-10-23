@@ -14,13 +14,9 @@ class Database{
 public:
 	Clients* clients;
 	string AddressOfFolder = "C:/db";
-
 	Infoes* infoes;
-
 	Checks* checks;
-
 	CaIs* cais;
-	
 	CaCs* cacs;
 
 	Database(string address) {
@@ -30,19 +26,19 @@ public:
 			PrintError("\nФайл \"Клиенты\"\n" + clients->ErrorMessage);
 
 		infoes = new Infoes(AddressOfFolder + "/infoes.txt");
-		if (clients->ErrorMessage != "")
+		if (infoes->ErrorMessage != "")
 			PrintError("\nФайл \"Информация\"\n" + infoes->ErrorMessage);
 		
 		checks = new Checks(AddressOfFolder + "/checks.txt");
-		if (clients->ErrorMessage != "")
+		if (checks->ErrorMessage != "")
 			PrintError("\nФайл \"Учет\"\n" + checks->ErrorMessage);
 
 		cais = new CaIs(AddressOfFolder + "/cais.txt", clients, infoes);
-		if (clients->ErrorMessage != "")
+		if (cais->ErrorMessage != "")
 			PrintError("\nФайл \"Связь клиента и информации\"\n" + cais->ErrorMessage);
 
 		cacs = new CaCs(AddressOfFolder + "/cacs.txt", clients, checks);
-		if (clients->ErrorMessage != "")
+		if (cacs->ErrorMessage != "")
 			PrintError("\nФайл \"Связь клиента и учета\"\n" + cacs->ErrorMessage);
 	}
 

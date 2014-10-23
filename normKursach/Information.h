@@ -69,7 +69,6 @@ private:
 
 		cout << "\n(1 - CD, 2 - DVD)";
 		cout << "\nВведите CD или DvD: ";
-//		bool flag;
 		do{
 			flag = false;
 			getline(cin, *buf);
@@ -183,6 +182,7 @@ public:
 			}
 
 			temp = readTo(buf, ',', pos);
+			tempInfo->Audio_Video = new string;
 			if (temp->compare("1") == 0)
 			{
 				*tempInfo->Audio_Video = "Audio";
@@ -194,6 +194,7 @@ public:
 			}
 
 			temp = readTo(buf, ',', pos);
+			tempInfo->Cd_Dvd = new string;
 			if (temp->compare("1") == 0)
 			{
 				*tempInfo->Cd_Dvd = "CD";
@@ -206,6 +207,7 @@ public:
 			}
 				
 			temp = readTo(buf, '.', pos);
+			tempInfo->Genre = new string;
 			if (isNumber(*temp)){
 					if (tempInfo->Audio_Video->compare("Audio") == 0){
 							switch (atoi(temp->c_str())){
@@ -217,12 +219,16 @@ public:
 								break;
 							case 3:
 								*tempInfo->Genre = "альтернатива";
+								break;
 							case 4:
 								*tempInfo->Genre = "джаз";
+								break;
 							case 5:
 								*tempInfo->Genre = "поп";
+								break;
 							default:
 								*tempInfo->Genre = "классика";
+								break;
 							}
 					}
 					else{
@@ -235,12 +241,16 @@ public:
 								break;
 							case 3:
 								*tempInfo->Genre = "приключения";
+								break;
 							case 4:
 								*tempInfo->Genre = "семейный";
+								break;
 							case 5:
 								*tempInfo->Genre = "драма";
+								break;
 							default:
 								*tempInfo->Genre = "ужасы";
+								break;
 							}
 					}
 				temp->clear();
@@ -454,10 +464,40 @@ public:
 
 		InfoList* temp = First;
 		while (temp != NULL){
-			data << temp->info->id << ","
-				<< temp->info->Audio_Video->c_str() << ","
-				<< temp->info->Cd_Dvd->c_str() << ","
-				<< temp->info->Genre->c_str() << ".\n";
+			data << temp->info->id << ",";
+			if (temp->info->Audio_Video->compare("Audio") == 0){
+				data << "1,";
+			}
+			else{
+				data << "2,";
+			}
+
+			if (temp->info->Cd_Dvd->compare("CD") == 0){
+				data << "1,";
+			}
+			else{
+				data << "2,";
+			}
+
+			if (temp->info->Genre->compare("классика") || temp->info->Genre->compare("ужасы")){
+				data << "1.";
+			}
+			else if (temp->info->Genre->compare("рок") || temp->info->Genre->compare("комедия")){
+				data << "2.";
+			}
+			else if (temp->info->Genre->compare("альтернатива") || temp->info->Genre->compare("приключения")){
+				data << "3.";
+			}
+			else if (temp->info->Genre->compare("джаз") || temp->info->Genre->compare("семейный")){
+				data << "4.";
+			}
+			else if (temp->info->Genre->compare("поп") || temp->info->Genre->compare("драма")){
+				data << "5.";
+			}
+			else if (temp->info->Genre->compare("классика") || temp->info->Genre->compare("ужасы")){
+				data << "6.";
+			}
+
 			temp = temp->next;
 		}
 		delete temp;
